@@ -9,10 +9,8 @@ Install the Xcode Command Line Tools if `cc --version` is unavailable
 
     brew install pcre2
 
-Build and install without sudo:
+From the source directory, build and install without sudo:
 
-    git clone https://github.com/PhilBug/ccze.git
-    cd ccze
     ./configure --prefix="$HOME/.local" --with-builtins=all
     make
     make check
@@ -31,7 +29,7 @@ Omit `-A` for the original curses display, or use `-h` for HTML output.
 The build above includes all bundled plugins in the executable, so no
 separate plugin installation is needed.
 
-This fork uses PCRE2's 8-bit library, not the legacy PCRE library. Existing
+CCZE uses PCRE2's 8-bit library, not the legacy PCRE library. Existing
 third-party plugins must be ported to ccze-regex.h and rebuilt (plugin ABI 3).
 The PCRE_CONFIG configure variable, if set, must point to pcre2-config.
 
