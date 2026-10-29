@@ -16,9 +16,25 @@ From the source directory, build and install without sudo:
     make check
     make install
 
-Ensure $HOME/.local/bin is on your PATH. For fish:
+`make install` creates $HOME/.local and the required subdirectories if
+needed. You do not need to create them manually.
+
+Ensure $HOME/.local/bin is on your PATH.
+
+For fish, run once:
 
     fish_add_path "$HOME/.local/bin"
+
+For Bash, add this line to ~/.bash_profile for login shells, or ~/.bashrc
+for non-login interactive shells:
+
+    export PATH="$HOME/.local/bin:$PATH"
+
+For Zsh, add this line to ~/.zshrc:
+
+    export PATH="$HOME/.local/bin:$PATH"
+
+After editing the Bash or Zsh configuration, open a new terminal.
 
 Colorize a log stream with ANSI output (also suitable for pipes):
 
