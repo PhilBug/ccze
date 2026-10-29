@@ -5924,8 +5924,8 @@ fi
 
 
 if test -z "${PCRE_CONFIG}"; then
-	# Extract the first word of "pcre-config", so it can be a program name with args.
-set dummy pcre-config; ac_word=$2
+	# Extract the first word of "pcre2-config", so it can be a program name with args.
+set dummy pcre2-config; ac_word=$2
 { echo "$as_me:$LINENO: checking for $ac_word" >&5
 echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
 if test "${ac_cv_path_PCRE_CONFIG+set}" = set; then
@@ -5966,15 +5966,21 @@ fi
 
 
 fi
-{ echo "$as_me:$LINENO: checking for PCRE" >&5
-echo $ECHO_N "checking for PCRE... $ECHO_C" >&6; }
+{ echo "$as_me:$LINENO: checking for PCRE2" >&5
+echo $ECHO_N "checking for PCRE2... $ECHO_C" >&6; }
 if test "${PCRE_CONFIG}" = "no"; then
-	{ { echo "$as_me:$LINENO: error: PCRE not found" >&5
-echo "$as_me: error: PCRE not found" >&2;}
+	{ { echo "$as_me:$LINENO: error: PCRE2 not found" >&5
+echo "$as_me: error: PCRE2 not found" >&2;}
    { (exit 1); exit 1; }; }
 fi
-PCRE_CFLAGS=$($PCRE_CONFIG --cflags)
-PCRE_LIBS=$($PCRE_CONFIG --libs)
+PCRE_CFLAGS=$($PCRE_CONFIG --cflags) || {
+  echo "$as_me: error: pcre2-config --cflags failed" >&2
+  exit 1
+}
+PCRE_LIBS=$($PCRE_CONFIG --libs8) || {
+  echo "$as_me: error: pcre2-config --libs8 failed" >&2
+  exit 1
+}
 
 
 { echo "$as_me:$LINENO: result: found" >&5
